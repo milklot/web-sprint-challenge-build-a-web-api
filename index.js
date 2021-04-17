@@ -14,7 +14,7 @@ Go code!
 */ 
 
 const server = require('./api/server');
-const port = 3333;
+const port = process.env.PORT || 3333;
 
 server.listen(port, () => {
 	console.log(`running at http://localhost:${port}`);
