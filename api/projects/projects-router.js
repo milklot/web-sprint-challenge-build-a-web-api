@@ -95,4 +95,16 @@ projectsRouter.delete('/api/projects/:id',async (req, res) => {
 	}
 })
 
+projectsRouter.get('/api/projects/:id/actions/', async (req, res) => {
+	try {
+		const projectActions = await projectsDB.getProjectActions(req.params.id)
+		res.status(200).json(projectActions)
+		}
+	catch(error) {
+		res.status(500).json({
+			message: "cannot get list of actions of this project id"
+		})
+	}
+})
+
 module.exports = projectsRouter;
